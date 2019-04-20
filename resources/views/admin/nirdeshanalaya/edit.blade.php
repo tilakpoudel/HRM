@@ -29,7 +29,7 @@
             <div class="form-group">
                     <label for="name">Select Ministry:</label>
                 <select name="ministry_id" id="ministry" class="form-control">
-                        <option value=""></option>
+                        <option value="{{$onenirdeshanalaya[0]->ministry_id}}">{{$onenirdeshanalaya[0]->ministry_name}}</option>
                     @foreach ($ministries as $ministry)
                         <option value="{{$ministry->id}}">{{$ministry->ministry_name}}</option>
                         

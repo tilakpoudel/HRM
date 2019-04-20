@@ -49,8 +49,7 @@ class NirdeshanalayaController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        //dd($request->all());
+        
         $this->validate($request,[
             'nirdeshanalaya_name'=>'required',
             'ministry_id'=>'required'
@@ -89,21 +88,20 @@ class NirdeshanalayaController extends Controller
     public function edit($id)
     {
         //
+        $onenirdeshanalaya = DB::table('nirdeshanalayas')
+        ->join('ministries', 'ministries.id', '=', 'nirdeshanalayas.ministry_id')
+        ->select('nirdeshanalayas.*','ministries.*')
+        ->where('nirdeshanalayas.id','=',$id)
+        ->get();
+
         $nirdeshanalaya= Nirdeshanalaya::find($id);
-        // $one = DB::table('ministries')
-        //     ->join('nirdeshanalayas', 'ministries.id', '=','nirdeshanalayas.ministry_id' )
-        //     ->select('ministries.ministry_name')
-        //     ->get();
+        $ministries=Ministry::all();
+        return view('admin.nirdeshanalaya.edit')->with(compact('ministries','nirdeshanalaya','onenirdeshanalaya'));
 
-        // $oneministry = Ministry::find($id);
 
-        // print_r($one);
-        // dd($oneministry);
-        
-        $ministry=Ministry::all();
-        return view('admin.nirdeshanalaya.edit')->with('nirdeshanalaya',$nirdeshanalaya)
-                                                ->with('ministries',$ministry)
-                                               ;
+        // return view('admin.nirdeshanalaya.edit')->with('nirdeshanalaya',$nirdeshanalaya)
+        //                                         ->with('ministries',$ministry)
+        //                                        ;
 
         // return view('admin.nirdeshanalaya.edit')->with('nirdeshanalaya',Nirdeshanalaya::find($id))
         //                                         ->with('ministries',Ministry::all());
