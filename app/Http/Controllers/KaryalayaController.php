@@ -23,12 +23,22 @@ class KaryalayaController extends Controller
     public function index()
     {
         //
-        $karyalayas = DB::table('nirdeshanalayas')
-            ->join('karyalayas', 'nirdeshanalayas.id', '=', 'karyalayas.nirdeshanalaya_id')
-            ->select('nirdeshanalayas.nir_name', 'karyalayas.*')
-            ->get();
+        $karyalayas = DB::table('karyalayas')
+        ->join('nirdeshanalayas', 'nirdeshanalayas.id', '=', 'karyalayas.nirdeshanalaya_id')
+        ->join('ministries', 'ministries.id', '=', 'karyalayas.ministry_id')
+        ->select('nirdeshanalayas.nir_name','ministries.ministry_name', 'karyalayas.*')
+        ->get();
 
-        return view('admin.karyalaya.index')->with('karyalayas',$karyalayas);
+
+    return view('admin.karyalaya.index')->with(compact('karyalayas'));
+
+
+        // $karyalayas = DB::table('nirdeshanalayas')
+        //     ->join('karyalayas', 'nirdeshanalayas.id', '=', 'karyalayas.nirdeshanalaya_id')
+        //     ->select('nirdeshanalayas.nir_name', 'karyalayas.*')
+        //     ->get();
+
+        // return view('admin.karyalaya.index')->with('karyalayas',$karyalayas);
 
     }
 
@@ -95,13 +105,22 @@ class KaryalayaController extends Controller
     public function edit($id)
     {
         //
+        $onekaryalaya = DB::table('karyalayas')
+        ->join('nirdeshanalayas', 'nirdeshanalayas.id', '=', 'karyalayas.nirdeshanalaya_id')
+        ->join('ministries', 'ministries.id', '=', 'karyalayas.ministry_id')
+        ->select('nirdeshanalayas.*','ministries.*', 'karyalayas.*')
+        ->where('karyalayas.id','=',$id)
+        ->get();
+
         $karyalaya= Karyalaya::find($id);
-        $nirdeshanalaya =Nirdeshanalaya::all();
-        $ministry=Ministry::all();
-        return view('admin.karyalaya.edit')->with('nirdeshanalaya',$nirdeshanalaya)
-                                            ->with('ministries',$ministry)
-                                            ->with('karyalaya',$karyalaya)
-                                               ;
+        $nirdeshanalayas =Nirdeshanalaya::all();
+        $ministries=Ministry::all();
+        return view('admin.karyalaya.edit')->with(compact('ministries','nirdeshanalayas','karyalaya','onekaryalaya'));
+
+        // return view('admin.karyalaya.edit')->with('nirdeshanalaya',$nirdeshanalaya)
+        //                                     ->with('ministries',$ministry)
+        //                                     ->with('karyalaya',$karyalaya)
+        //                                        ;
     }
 
     /**

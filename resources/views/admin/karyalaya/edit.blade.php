@@ -28,7 +28,7 @@
             <div class="form-group" style="font-size:20px;">
                 <label for="name">Select Ministry:</label>
                 <select name="ministry_id" id="ministry" class="form-control">
-                        <option value="">Select a ministry</option>
+                        <option value="{{$onekaryalaya[0]->ministry_id}}">{{$onekaryalaya[0]->ministry_name}}</option>
                     @foreach ($ministries as $ministry)
                         <option value="{{$ministry->id}}">{{$ministry->ministry_name}}</option>
                         
@@ -39,8 +39,8 @@
             <div class="form-group" style="font-size:20px;">
                 <label for="name">Select Nirdeshanalaya:</label>
                 <select name="nirdeshanalaya" id="nirdeshanalaya" class="form-control">
-                        <option value="">Select a Nirdeshanalaya</option>
-                    @foreach ($nirdeshanalaya as $nirdeshanalaya)
+                        <option value="{{$onekaryalaya[0]->nirdeshanalaya_id}}">{{$onekaryalaya[0]->nir_name}}</option>
+                    @foreach ($nirdeshanalayas as $nirdeshanalaya)
                         <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>
                         
                     @endforeach

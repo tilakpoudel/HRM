@@ -26,7 +26,7 @@
                     @foreach($karyalayas as $kar)
                     <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$kar->ministry_id}}</td> 
+                    <td>{{$kar->ministry_name}}</td> 
 
                     <td>{{$kar->nir_name}}</td> 
 

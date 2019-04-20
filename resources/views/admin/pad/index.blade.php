@@ -27,9 +27,9 @@
                     @foreach($pads as $pad)
                     <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$pad->ministry_id}}</td> 
-                    <td>{{$pad->nir_id}}</td> 
-                    <td>{{$pad->kar_id}}</td> 
+                    <td>{{$pad->ministry_name}}</td> 
+                    <td>{{$pad->nir_name}}</td> 
+                    <td>{{$pad->kar_name}}</td> 
                     <td>{{$pad->taha_name}}</td>
                     <td>{{$pad->pad_name}}</td>  
                     <td>

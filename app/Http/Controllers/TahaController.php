@@ -24,12 +24,23 @@ class TahaController extends Controller
     public function index()
     {
         //
-        $tahas = DB::table('karyalayas')
-            ->join('tahas', 'karyalayas.id', '=', 'tahas.kar_id')
-            ->select('karyalayas.kar_name', 'tahas.*')
+        $tahas = DB::table('tahas')
+            ->join('karyalayas', 'karyalayas.id', '=', 'tahas.kar_id')
+            ->join('nirdeshanalayas', 'nirdeshanalayas.id', '=', 'tahas.nir_id')
+            ->join('ministries', 'ministries.id', '=', 'tahas.ministry_id')
+            ->select('karyalayas.kar_name','nirdeshanalayas.nir_name','ministries.ministry_name', 'tahas.*')
             ->get();
 
-        return view('admin.taha.index')->with('tahas',$tahas);
+
+        return view('admin.taha.index')->with(compact('tahas'));
+
+
+        // $tahas = DB::table('karyalayas')
+        //     ->join('tahas', 'karyalayas.id', '=', 'tahas.kar_id')
+        //     ->select('karyalayas.kar_name', 'tahas.*')
+        //     ->get();
+
+        // return view('admin.taha.index')->with('tahas',$tahas);
     }
 
     /**
@@ -103,11 +114,19 @@ class TahaController extends Controller
     public function edit($id)
     {
         //
+        $onetaha = DB::table('tahas')
+        ->join('karyalayas', 'karyalayas.id', '=', 'tahas.kar_id')
+        ->join('nirdeshanalayas', 'nirdeshanalayas.id', '=', 'tahas.nir_id')
+        ->join('ministries', 'ministries.id', '=', 'tahas.ministry_id')
+        ->select('tahas.*','karyalayas.*','nirdeshanalayas.*','ministries.*', 'tahas.*')
+        ->where('tahas.id','=',$id)
+        ->get();
+
         $taha = Taha::find($id);
         $ministries=Ministry::where('status','=','1')->get();
         $nirdeshanalayas= Nirdeshanalaya::where('status','=','1')->get();
         $karyalayas= Karyalaya::where('status','=','1')->get();
-        return view('admin.taha.edit')->with(compact('ministries','nirdeshanalayas','karyalayas','taha'));
+        return view('admin.taha.edit')->with(compact('ministries','nirdeshanalayas','karyalayas','taha','onetaha'));
 
 //alternative way 
     //     return view('admin.taha.edit')->with('nirdeshanalayas',$nirdeshanalaya)

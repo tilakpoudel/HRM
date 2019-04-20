@@ -27,8 +27,8 @@
                     @foreach($tahas as $taha)
                     <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$taha->ministry_id}}</td> 
-                    <td>{{$taha->nir_id}}</td> 
+                    <td>{{$taha->ministry_name}}</td> 
+                    <td>{{$taha->nir_name}}</td> 
                     <td>{{$taha->kar_name}}</td> 
                     <td>{{$taha->taha_name}}</td> 
                     <td>

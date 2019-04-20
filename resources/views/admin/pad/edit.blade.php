@@ -29,7 +29,7 @@
             <div class="form-group" style="font-size:20px;">
                 <label for="name">मन्त्रालय छान्नुहोस्:</label>
                 <select name="ministry_id" id="ministry" class="form-control">
-                        <option value="">मन्त्रालय छान्नुहोस्:</option>
+                    <option value="{{$onepad[0]->ministry_id}}">{{$onepad[0]->ministry_name}}</option>
                     @foreach ($ministries as $ministry)
                         <option value="{{$ministry->id}}">{{$ministry->ministry_name}}</option>
                         
@@ -40,7 +40,7 @@
             <div class="form-group" style="font-size:20px;">
                 <label for="name">निर्देशनालय  छान्नुहोस्:</label>
                 <select name="nirdeshanalaya" id="nirdeshanalaya" class="form-control">
-                        <option value="">निर्देशनालय  छान्नुहोस्</option>
+                        <option value="{{$onepad[0]->nir_id}}">{{$onepad[0]->nir_name}}</option>
                     @foreach ($nirdeshanalayas as $nirdeshanalaya)
                         <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>
                         
@@ -51,7 +51,7 @@
             <div class="form-group" style="font-size:20px;">
                 <label for="name">कर्यालय छान्नुहोस्:</label>
                 <select name="karyalaya" id="karyalaya" class="form-control">
-                        <option value="">कर्यालय छान्नुहोस्</option>
+                        <option value="{{$onepad[0]->kar_id}}">{{$onepad[0]->kar_name}}</option>
                     @foreach ($karyalayas as $karyalaya)
                         <option value="{{$karyalaya->id}}">{{$karyalaya->kar_name}}</option>
                         
@@ -62,7 +62,7 @@
             <div class="form-group" style="font-size:20px;">
                 <label for="name">तह छान्नुहोस्:</label>
                 <select name="taha" id="taha" class="form-control">
-                        <option value="">तह छान्नुहोस्</option>
+                        <option value="{{$onepad[0]->taha_id}}">{{$onepad[0]->taha_name}}</option>
                     @foreach ($tahas as $taha)
                         <option value="{{$taha->id}}">{{$taha->taha_name}}</option>
                         

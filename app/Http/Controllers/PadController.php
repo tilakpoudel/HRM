@@ -25,12 +25,18 @@ class PadController extends Controller
     public function index()
     {
         //
-        $pad = DB::table('tahas')
-            ->join('pads', 'tahas.id', '=', 'pads.taha_id')
-            ->select('tahas.taha_name', 'pads.*')
-            ->get();
+        $pads = DB::table('pads')
+                    ->join('tahas', 'tahas.id', '=', 'pads.taha_id')
+                    ->join('karyalayas', 'karyalayas.id', '=', 'pads.kar_id')
+                    ->join('nirdeshanalayas', 'nirdeshanalayas.id', '=', 'pads.nir_id')
+                    ->join('ministries', 'ministries.id', '=', 'pads.ministry_id')
+                    ->select('tahas.taha_name','karyalayas.kar_name','nirdeshanalayas.nir_name','ministries.ministry_name', 'pads.*')
+                    ->get();
+       
 
-        return view('admin.pad.index')->with('pads',$pad);
+        // dd($pads);
+        return view('admin.pad.index')->with(compact('pads'));
+        // return view('admin.pad.index')->with('pads',$pad);
     }
 
     /**
@@ -100,18 +106,27 @@ class PadController extends Controller
     public function edit($id)
     {
         //
-        $pad = Pad::find($id);
-        $taha = Taha::all();
-        $karyalaya= Karyalaya::all();
-        $nirdeshanalaya =Nirdeshanalaya::all();
-        $ministry=Ministry::all();
-        return view('admin.pad.edit')->with('nirdeshanalayas',$nirdeshanalaya)
-                                        ->with('ministries',$ministry)
-                                        ->with('karyalayas',$karyalaya)
-                                        ->with('tahas',$taha)
-                                        ->with('pad',$pad);
-                                               
+        // echo($id);
+        $onepad = DB::table('pads')
+                    ->join('tahas', 'tahas.id', '=', 'pads.taha_id')
+                    ->join('karyalayas', 'karyalayas.id', '=', 'pads.kar_id')
+                    ->join('nirdeshanalayas', 'nirdeshanalayas.id', '=', 'pads.nir_id')
+                    ->join('ministries', 'ministries.id', '=', 'pads.ministry_id')
+                    ->select('tahas.*','karyalayas.*','nirdeshanalayas.*','ministries.*', 'pads.*')
+                    ->where('pads.id','=',$id)
+                    ->get();
 
+        
+        $pad = Pad::find($id);
+        
+        $tahas = Taha::all();
+        $karyalayas= Karyalaya::all();
+        $nirdeshanalayas =Nirdeshanalaya::all();
+        $ministries=Ministry::all();
+
+        return view('admin.pad.edit')->with(compact('onepad','nirdeshanalayas','ministries','karyalayas','tahas','pad'));
+
+        
     }
 
     /**
