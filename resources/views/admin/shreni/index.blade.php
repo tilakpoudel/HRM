@@ -3,8 +3,8 @@
 @section('content')
 <div class="card card-default">
         <div class="card-header"  style="font-size:20px;">
-            उपलब्ध शृीणी..
-            <a href="{{route('shreni.create')}}" class="btn btn-md btn-success" style="float:right;">नया शृीणी थप्नुहोस</a>
+            उपलब्ध श्रेणी..
+            <a href="{{route('shreni.create')}}" class="btn btn-md btn-success" style="float:right;">नया श्रेणी थप्नुहोस</a>
 
         </div>
 
@@ -13,9 +13,9 @@
                 <thead style="font-size:20px;">
                     <tr>
                         <th>सिन</th>
-                        <th>शृीणी</th>
-                        <th>Status</th>
-                        <th>Edit</th>
+                        <th>श्रेणी</th>
+                        <th>स्थिति</th>
+                        <th>सम्पादन</th>
                         {{-- <th>Delete</th> --}}
                     </tr>
                 </thead>

@@ -17,7 +17,7 @@
 
     <div class="card card-default">
         <div class="card-header" style="font-size:20px;">
-            नयाँ शृीणी थप्नुहोस्।
+            नयाँ श्रेणी थप्नुहोस्।
         </div>
 
         <div class="card-body">
@@ -26,11 +26,11 @@
             @csrf
 
             <div class="form-group" style="font-size:20px;">
-                <label for="name">शृीणी:</label>
+                <label for="name">श्रेणी:</label>
                 <input type="text" name="shreni_name" class="form-control">
             </div>
             <div class="form-group" style="font-size:20px;">
-                <label for="name">Status:</label>
+                <label for="name">स्थिति:</label>
                 <select name="status" id="status" class="form-control">
                     <option value="1">Available</option>
                     <option value="0">Unavalable</option>

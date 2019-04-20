@@ -82,7 +82,7 @@
               <div class="col-lg-3" style="margin-top: 2%;">
                 <ul class="list-group" style="font-size:20px">
                     <li class="list-group-item">
-                        <a href="{{route('home')}}">Home</a>
+                        <a href="{{route('home')}}">गृह</a>
                     </li>
 
                     <li class="list-group-item">
@@ -111,7 +111,7 @@
                     </li>
 
                     <li class="list-group-item">
-                        <a href="{{route('shreni.index')}}">शृीणी</a>
+                        <a href="{{route('shreni.index')}}">श्रेणी</a>
                     </li>
 
                     <li class="list-group-item">

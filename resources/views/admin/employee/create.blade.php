@@ -66,7 +66,7 @@
                                 <input class="form-control" type="text" name="fathername" id="fathername">
                             </div>
                             <div class="col-md-4">
-                                <label for="name">हाजुरबुबाको नाम </label>
+                                <label for="name">हजुरबुबाको नाम </label>
                                 <input class="form-control" type="text" name="gfname" id="gfname">
                             </div>
                             <div class="col-md-4">
@@ -79,7 +79,8 @@
                                 <div class="form-group col-md-4" >
                                         <label for="name">मन्तरालय चयन गर्नुहोस्:</label>
                                         <select name="ministry_id" id="ministry" class="form-control">
-                                               
+                                                <option value="">मन्तरालय चयन गर्नुहोस्:</option>
+  
                                             @foreach ($ministries as $ministry)
                                                 <option value="{{$ministry->id}}">{{$ministry->ministry_name}}</option>
                                                 
@@ -133,7 +134,7 @@
 
                                     <div class="col-md-4">
                                             <div class="form-group">
-                                                    <label for="name">शृीणी</label>
+                                                    <label for="name">श्रेणी चयन गर्नुहोस्</label>
                                                     <select name="shreni" id="shreni" class="form-control">
                                                             
                                                         @foreach ($shrenis as $shreni)
@@ -147,7 +148,7 @@
                                 
                                 <div class="col-md-4">
                                         <div class="form-group">
-                                                <label for="name">पद रोज्नुुहोस</label>
+                                                <label for="name">पद चयन गर्नुहोस्</label>
                                                 <select name="pad" id="pad" class="form-control">
                                                        
                                                     @foreach ($pads as $pad)
@@ -170,7 +171,7 @@
                                         <div class="col-md-4">
                                                 <div class="form-group">
                                                         <label for="name">कर्मचारिको पर्कार</label>
-                                                        <select name="pad" id="pad" class="form-control">
+                                                        <select name="emp_type" id="emp_type" class="form-control">
                                                               
                                                             <option value="k">काज</option>
                                                             <option value="प">पदस्थापन</option>
@@ -181,12 +182,22 @@
                                                             
                                                 </div>
                                         </div>
+                                        <div class="col-md-4">
+                                                <div class="form-group">
+                                                        <label for="name">स्थिति:</label>
+                                                        <select name="emp_status" id="emp_status" class="form-control">
+                                                            <option value="1">Active</option>
+                                                            <option value="0">InActive</option>
+                                                        </select>
+                                                            
+                                                </div>
+                                        </div>
                                         
                                     </div>
                
             <div class="form-group">
                 <div class="text-center">
-                    <button class="btn btn-lg btn-success" type="submit" style="float:left">Save</button>
+                    <button class="btn btn-lg btn-success" type="submit" style="float:left">सुरक्षित गर्नुहोस्</button>
                 </div>
             </div> 
 

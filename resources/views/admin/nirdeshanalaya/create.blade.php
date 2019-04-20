@@ -49,7 +49,7 @@
                         <option value="0">Unavalable</option>
                     </select>
                         
-                </div>
+            </div>
 
             <div class="form-group">
                 <div class="text-center">

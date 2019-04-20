@@ -4,7 +4,7 @@
 @section('content')
     <div class="card card-default">
         <div class="card-header" style="font-size:20px;">
-           Edit शृीणी:{{$shreni->shreni_name}}
+           Edit श्रेणी:{{$shreni->shreni_name}}
         </div>
 
         <div class="card-body">
@@ -15,11 +15,11 @@
             @method('put')
 
             <div class="form-group">
-                <label for="name">शृीणी:</label>
+                <label for="name">श्रेणी:</label>
                 <input type="text" name="shreni_name" value="{{$shreni->shreni_name}}" class="form-control">
             </div>
             <div class="form-group" style="font-size:20px;">
-                <label for="name">Status:</label>
+                <label for="name">स्थिति:</label>
                 <select name="status" id="status" class="form-control">
                     <option value="1">Available</option>
                     <option value="0">UnAvailable</option>

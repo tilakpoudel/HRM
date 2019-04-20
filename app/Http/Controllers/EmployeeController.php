@@ -22,7 +22,7 @@ class EmployeeController extends Controller
     public function index()
     {
         //
-        return view('admin.employee.index')->with('employees',Employee::where('emp_status','=','1'));
+        return view('admin.employee.index')->with('employees',Employee::all());
     }
 
     /**
@@ -33,12 +33,15 @@ class EmployeeController extends Controller
     public function create()
     {
         //
-        return view('admin.employee.create')->with('ministries',Ministry::all())
+        $ministries=Ministry::all();
+
+        return view('admin.employee.create')->with('ministries',$ministries)
                                         ->with('nirdeshanalayas',Nirdeshanalaya::all())
                                         ->with('karyalayas',Karyalaya::all())
                                         ->with('tahas',Taha::all())
                                         ->with('shrenis',Shreni::all())
                                         ->with('pads',Pad::all())
+                                        
                                         ;
                                     
     }
@@ -52,6 +55,51 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'ministry_id'=>'required',
+            'nirdeshanalaya'=>'required',
+            'karyalaya'=>'required',
+            'taha'=>'required',
+            'pad'=>'required',
+            'fname'=>'required',
+            'lname'=>'required',
+            'address'=>'required',
+            'gender'=>'required',
+            'dob'=>'required',
+            'fathername'=>'required',
+            'gfname'=>'required',
+            'shreni'=>'required',
+            'emp_type'=>'required',
+            
+            
+        ]);
+
+        
+        Employee::create([
+            'first_name'=>$request['fname'],
+            'middle_name'=>$request['mname'],
+            'last_name'=>$request['lname'],
+            'address'=>$request['address'],
+            'gender'=>$request['gender'],
+            'dob'=>$request['dob'],
+            'father_name'=>$request['fathername'],
+            'grandfather_name'=>$request['gfname'],
+            'spouse_name'=>$request['hwname'],
+            'ministry_id'=>$request['ministry_id'],
+            'nir_id'=>$request['nirdeshanalaya'],
+            'kar_id'=>$request['karyalaya'],
+            'taha_id'=>$request['taha'],
+            'shreni_id'=>$request['shreni'],
+            'pad_id'=>$request['pad'],
+            'hire_date'=>$request['hdate'],
+            'emp_type'=>$request['emp_type'],
+            'emp_status'=>$request['emp_status'],
+
+        ]);
+
+        Session::flash('success','Employess REcord Successfully!');
+
+        return redirect()->route('employee.index');
     }
 
     /**
