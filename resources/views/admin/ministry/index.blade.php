@@ -10,7 +10,7 @@
 
         <div class="card-body">
             <table class="table table-hover">
-                <thead>
+                <thead style="font-size:20px;">
                     <tr>
                         <th>सिन</th>
                         <th>मन्तरालय</th>

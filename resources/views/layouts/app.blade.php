@@ -110,6 +110,14 @@
                         <a href="{{route('pad.index')}}">पद	</a>
                     </li>
 
+                    <li class="list-group-item">
+                        <a href="{{route('shreni.index')}}">शृीणी</a>
+                    </li>
+
+                    <li class="list-group-item">
+                        <a href="{{route('employee.index')}}">कर्मचारि</a>
+                    </li>
+
                     
                 </ul>
             </div>

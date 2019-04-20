@@ -38,7 +38,8 @@ class NirdeshanalayaController extends Controller
     public function create()
     {
         //
-        return view('admin.nirdeshanalaya.create')->with('ministries',Ministry::all());
+        $ministries=Ministry::where('status','=','1');
+        return view('admin.nirdeshanalaya.create')->with('ministries',$ministries);
     }
 
     /**

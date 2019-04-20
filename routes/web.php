@@ -26,6 +26,10 @@ Route::group(['prefix'=>'admin','middlware'=>'auth'],function(){
     Route::resource('karyalaya','KaryalayaController');
     Route::resource('taha','TahaController');
     Route::resource('pad','PadController');
+    Route::resource('shreni','ShreniController');
+    Route::resource('employee','EmployeeController');
+
+
 
 
 

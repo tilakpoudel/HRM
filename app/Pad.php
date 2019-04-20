@@ -12,4 +12,7 @@ class Pad extends Model
     public function taha(){
         $this->belongsTo('App\Taha');
     }
+    public function employee(){
+        $this->belongsTo('App\Employee');
+    }
 }

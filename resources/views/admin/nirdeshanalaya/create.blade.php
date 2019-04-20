@@ -3,6 +3,7 @@
 
 @section('content')
 
+   
     @if (count($errors) > 0)
         <ul class="list-group">
             @foreach ($errors->all() as $error)
@@ -11,15 +12,14 @@
                 </li>
             @endforeach
         </ul>
-
-        
     @endif
-
+   
+   
     <div class="card card-default">
         <div class="card-header">
             Create new Nirdeshanalaya
         </div>
-
+        @if ($ministries->count() > 0)
         <div class="card-body">
             <form action="{{route('nirdeshanalaya.store')}}"method="post" >
                 {{-- {{ csrf_field() }} --}}
@@ -61,4 +61,15 @@
         </div>
     </div>    
 
+
+    @else
+    <div class="card-body">
+        <div class="alert alert-danger" role="alert">
+            At First Create Ministry..
+          </div>
+
+    </div>
+
+    @endif
+  
 @endsection

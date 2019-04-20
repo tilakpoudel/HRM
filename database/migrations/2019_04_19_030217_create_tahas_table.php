@@ -19,7 +19,7 @@ class CreateTahasTable extends Migration
             $table->integer('nir_id');
             $table->integer('kar_id');
             $table->string('taha_name');
-
+            $table->tinyInteger('status');
             $table->timestamps();
         });
     }

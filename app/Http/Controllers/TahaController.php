@@ -56,10 +56,7 @@ class TahaController extends Controller
         $karyalayas= Karyalaya::where('status','=','1')->get();
         return view('admin.taha.create')->with(compact('ministries','nirdeshanalayas','karyalayas'));
 
-        // return view('admin.taha.create')->with('ministries',Ministry::where('status','=','1'))
-        //                                     ->with('nirdeshanalayas',Nirdeshanalaya::where('status','=','1'))
-        //                                     ->with('karyalayas',Karyalaya::where('status','=','1')->get())
-        //                                     ;
+        
     }
 
     /**
