@@ -26,8 +26,8 @@
 
             <div class="form-group">
                 <label for="name">Select Ministry:</label>
-                <select name="ministry_id" id="ministry" class="form-control">
-                        <option value="">Select a ministry</option>
+                <select name="ministry_id" id="ministry" class="form-control dynamic" data-dependent="nirdeshanalaya">
+                        <option value="">Select a मन्तरालय</option>
                     @foreach ($ministries as $ministry)
                         <option value="{{$ministry->id}}">{{$ministry->ministry_name}}</option>
                         
@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
                 <label for="name">Select Nirdeshanalaya:</label>
-                <select name="nirdeshanalaya" id="nirdeshanalaya" class="form-control">
+                <select name="nirdeshanalaya" id="nirdeshanalaya" class="form-control dynamic" data-dependent="karyalaya"">
                         <option value="">Select a ministry</option>
                     @foreach ($nirdeshanalayas as $nirdeshanalaya)
                         <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>
@@ -79,6 +79,26 @@
 
             </form>
         </div>
-    </div>    
+    </div>  
+    
+    <script>
+        $(document).ready(function () {
+            $('.dynamic').change(function(){
+                if($(this).val()!=''){
+                    var select=$(this).attr("id");
+                    var value=$(this).val();
+                    var dependent=$(this).data("deoendent");
+                    var _token=$('input[name="_token"]').val();
+                    $.ajax({
+                        url:"{{route('tahaController.fetch')}}",
+                        method:"post",
+                        data:{select:select,value:value,_token:_token,dependent:dependent},
+                        success:function(result){$('#'.+dependent).html(result)}
+                    })
+
+                }
+            })
+        })
+    </script>
 
 @endsection

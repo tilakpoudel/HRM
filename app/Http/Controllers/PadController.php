@@ -47,10 +47,10 @@ class PadController extends Controller
     public function create()
     {
         //
-        return view('admin.pad.create')->with('ministries',Ministry::all())
-                                        ->with('nirdeshanalayas',Nirdeshanalaya::all())
-                                        ->with('karyalayas',Karyalaya::all())
-                                        ->with('tahas',Taha::all())
+        return view('admin.pad.create')->with('ministries',Ministry::where('status',1)->get())
+                                        ->with('nirdeshanalayas',Nirdeshanalaya::where('status',1)->get())
+                                        ->with('karyalayas',Karyalaya::where('status',1)->get())
+                                        ->with('tahas',Taha::where('status',1)->get())
                                         ;
                                     }
 
@@ -119,10 +119,10 @@ class PadController extends Controller
         
         $pad = Pad::find($id);
         
-        $tahas = Taha::all();
-        $karyalayas= Karyalaya::all();
-        $nirdeshanalayas =Nirdeshanalaya::all();
-        $ministries=Ministry::all();
+        $tahas = Taha::where('status',1)->get();
+        $karyalayas= Karyalaya::where('status',1)->get();
+        $nirdeshanalayas =Nirdeshanalaya::where('status',1)->get();
+        $ministries=Ministry::where('status',1)->get();
 
         return view('admin.pad.edit')->with(compact('onepad','nirdeshanalayas','ministries','karyalayas','tahas','pad'));
 

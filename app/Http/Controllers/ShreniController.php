@@ -20,7 +20,7 @@ class ShreniController extends Controller
     public function index()
     {
         //
-        $shrenis = Shreni::all();
+        $shrenis = Shreni::where('status',1)->get();
         return view('admin.shreni.index')->with('shrenis',$shrenis);
     }
 

@@ -50,8 +50,8 @@ class KaryalayaController extends Controller
     public function create()
     {
         //
-        return view('admin.karyalaya.create')->with('ministries',Ministry::all())
-                                            ->with('nirdeshanalayas',Nirdeshanalaya::all());
+        return view('admin.karyalaya.create')->with('ministries',Ministry::where('status',1)->get())
+                                            ->with('nirdeshanalayas',Nirdeshanalaya::where('status',1)->get());
     }
 
     /**
@@ -63,7 +63,7 @@ class KaryalayaController extends Controller
     public function store(Request $request)
     {
         //
-        // dd($request->all());
+        // dd($request->where('status',1)->get());
         $this->validate($request,[
             'ministry_id'=>'required',
             'nirdeshanalaya'=>'required',
@@ -113,8 +113,8 @@ class KaryalayaController extends Controller
         ->get();
 
         $karyalaya= Karyalaya::find($id);
-        $nirdeshanalayas =Nirdeshanalaya::all();
-        $ministries=Ministry::all();
+        $nirdeshanalayas =Nirdeshanalaya::where('status',1)->get();
+        $ministries=Ministry::where('status',1)->get();
         return view('admin.karyalaya.edit')->with(compact('ministries','nirdeshanalayas','karyalaya','onekaryalaya'));
 
         // return view('admin.karyalaya.edit')->with('nirdeshanalaya',$nirdeshanalaya)

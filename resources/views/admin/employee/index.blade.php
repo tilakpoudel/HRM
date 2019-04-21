@@ -22,7 +22,7 @@
                         <th>कार्यालय</th>
                         <th>तह॰</th>
                         <th>पद</th> --}}
-                        <th>स्वीकार गरिएको मिति</th>
+                        <th>स्वीकार गरिएको</th>
                         <th>स्थिति</th>
                         <th>सम्पादन</th>
                         {{-- <th>Delete</th> --}}
@@ -33,7 +33,7 @@
                     @foreach($employees as $employee)
                     <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$employee->first_name}} {{$employee->middle_name}}{{ $employee->last_name}}</td> 
+                    <td>{{$employee->first_name}} {{$employee->middle_name}} {{ $employee->last_name}}</td> 
                     <td>{{$employee->address}}</td> 
                     <td>{{$employee->dob}}</td> 
                     {{-- <td>{{$employee->ministry_name}}</td> 
