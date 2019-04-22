@@ -60,6 +60,27 @@ class TahaController extends Controller
         
     }
 
+    //this method dynamically sececlts the data for select
+
+    // function fetch (Request $request){
+    //     dd($request);
+    //     $select = $request->get('select');
+    //     $value = $request->get('value');
+    //     $dependent = $request->get('dependent');
+    //      $data = DB::table('ministries')
+    //             ->where($select,$value)
+    //             ->groupBy($dependent)
+    //             ->get();
+    //     $output = '<option value="">
+    //                 Select '.ucfirst($dependent).
+    //                 '</option>'; 
+    //     foreach($data as $row){
+    //         $output .= '<option value="'.$row->dependent.'">'.$row->dependent.'</option>';
+
+    //         }      
+    //         echo $output;
+    // }
+
     /**
      * Store a newly created resource in storage.
      *

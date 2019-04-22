@@ -35,9 +35,12 @@
                 </select>
                     
             </div>
+
+            
+
             <div class="form-group">
                 <label for="name">Select Nirdeshanalaya:</label>
-                <select name="nirdeshanalaya" id="nirdeshanalaya" class="form-control dynamic" data-dependent="karyalaya"">
+                <select name="nirdeshanalaya" id="nirdeshanalaya" class="form-control dynamic" data-dependent="karyalaya">
                         <option value="">Select a ministry</option>
                     @foreach ($nirdeshanalayas as $nirdeshanalaya)
                         <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>
@@ -81,24 +84,26 @@
         </div>
     </div>  
     
-    <script>
+    {{-- <script>
         $(document).ready(function () {
             $('.dynamic').change(function(){
                 if($(this).val()!=''){
                     var select=$(this).attr("id");
                     var value=$(this).val();
-                    var dependent=$(this).data("deoendent");
+                    var dependent=$(this).data("dependent");
                     var _token=$('input[name="_token"]').val();
                     $.ajax({
                         url:"{{route('tahaController.fetch')}}",
                         method:"post",
                         data:{select:select,value:value,_token:_token,dependent:dependent},
-                        success:function(result){$('#'.+dependent).html(result)}
+                        success:function(result){
+                            $('#'.+dependent).html(result)
+                            }
                     })
 
                 }
             })
         })
-    </script>
+    </script> --}}
 
 @endsection

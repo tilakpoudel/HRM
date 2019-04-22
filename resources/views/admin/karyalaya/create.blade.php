@@ -27,7 +27,7 @@
 
             <div class="form-group"style="font-size:20px;">
                 <label for="name">Select Ministry:</label>
-                <select name="ministry_id" id="ministry" class="form-control">
+                <select name="ministry_id" id="ministry_id" class="form-control">
                         <option value="">Select a ministry</option>
                     @foreach ($ministries as $ministry)
                         <option value="{{$ministry->id}}">{{$ministry->ministry_name}}</option>
@@ -68,6 +68,26 @@
 
             </form>
         </div>
-    </div>    
+    </div>   
+
+    {{-- <script>
+        jQuery(document).ready(function($){
+            $('#ministry_id').change(function(){
+                $.get("{{ route('dropdown')}}", 
+                    { option: $(this).val() }, 
+                    function(data) {
+                        var nirdeshanalaya = $('#nirdeshanalaya');
+                        nirdeshanalaya.empty();
+    
+                        $.each(data, function(index, element) {
+                            nirdeshanalaya.append("<option value='"+ element.id +"'>" + element.nir_name + "</option>");
+                        });
+                    });
+            });
+        });
+     </script> --}}
+
+     
+
 
 @endsection

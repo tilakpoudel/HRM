@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\Facades\Input;
+use App\Ministry;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +30,17 @@ Route::group(['prefix'=>'admin','middlware'=>'auth'],function(){
     Route::resource('shreni','ShreniController');
     Route::resource('employee','EmployeeController');
      
+    // Route::post('dyamic_content/fetch','
+    // TahaController@fetch')->name('tahaController.fetch');
 
+    // Route::get('api/dropdown', function(){
+    //     $input = Input::get('option');
+    //       $ministry = Ministry::find($input)->$nirdeshanalaya();
+    //     //   echo($ministry);
+    //     //   $nirdeshanalayas = $ministry->$nirdeshanalaya();
+    //     //   return Response::make($nirdeshanalayas->get(['id','nir_name']));
+    //       return $ministry->lists('nir_name', 'id');
+    //   })->name('dropdown');
 
 
 
