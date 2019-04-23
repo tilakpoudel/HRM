@@ -195,4 +195,37 @@ class EmployeeController extends Controller
     {
         //
     }
+
+    //this method is to perform additional operation on employee
+    public function operate($id){
+
+        $oneemployee = DB::table('employees')
+        ->join('pads','pads.id','=','employees.pad_id')
+        ->join('shrenis','shrenis.id','=','employees.shreni_id')
+        ->join('tahas', 'tahas.id', '=', 'employees.taha_id')
+        ->join('karyalayas', 'karyalayas.id', '=', 'employees.kar_id')
+        ->join('nirdeshanalayas', 'nirdeshanalayas.id', '=', 'employees.nir_id')
+        ->join('ministries', 'ministries.id', '=', 'employees.ministry_id')
+        ->select('tahas.*','karyalayas.*','nirdeshanalayas.*','ministries.*', 'employees.*','pads.*','shrenis.*')
+        ->where('employees.id','=',$id)
+        ->get();
+
+        // dd($oneemployee);
+
+        $employee = Employee::find($id);
+        $shrenis = Shreni::where('status',1)->get();
+        $pads= Pad::where('status',1)->get();
+        $tahas = Taha::where('status',1)->get();
+        $karyalayas= Karyalaya::where('status',1)->get();
+        $nirdeshanalayas =Nirdeshanalaya::where('status',1)->get();
+        $ministries=Ministry::where('status',1)->get();
+
+        return view('admin.employee.operate')->with(compact('oneemployee','nirdeshanalayas','ministries','karyalayas','tahas','pads','shrenis','employee'));
+
+        // return view('admin.employee.operate')->with()
+    }
+
+    public function storeOperate(Request $request){
+        
+    }
 }

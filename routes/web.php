@@ -29,7 +29,14 @@ Route::group(['prefix'=>'admin','middlware'=>'auth'],function(){
     Route::resource('pad','PadController');
     Route::resource('shreni','ShreniController');
     Route::resource('employee','EmployeeController');
-     
+    Route::get('/employee/operate/{id}','EmployeeController@operate')->name('employee.operate');
+    Route::post('/operate', [
+        'use'=>'EmployeeController@storeOperate',
+        'as'=>'employee.storeOperate'
+    ]);
+
+    // Route::get('employee/operate','EmployeeController@operate');
+
     // Route::post('dyamic_content/fetch','
     // TahaController@fetch')->name('tahaController.fetch');
 

@@ -182,8 +182,8 @@
                                                         <select name="emp_type" id="emp_type" class="form-control">
                                                               
                                                             <option value="k">काज</option>
-                                                            <option value="प">पदस्थापन</option>
-                                                            <option value="k">नयाँ</option>
+                                                            <option value="p">पदस्थापन</option>
+                                                            <option value="n">नयाँ</option>
 
                                                               
                                                         </select>
