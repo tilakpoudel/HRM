@@ -68,8 +68,6 @@ class KaryalayaController extends Controller
         $karyalaya->nirdeshanalaya_id= $request->nirdeshanalaya;
         $karyalaya->kar_name= $request->karyalaya;
         $karyalaya->status= $request->status;
-
-
         $karyalaya->save();
 
         Session::flash('success','Karyalaya updated successfully');
