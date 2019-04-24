@@ -10,30 +10,17 @@ use App\Taha;
 use App\Pad;
 use App\Employee;
 use App\Shreni;
-
 use Session;
-use DB;
+
 class EmployeeController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+{    
     public function index()
-    {
-        //
+    {        
         return view('admin.employee.index')->with('employees',Employee::all());
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
-    {
-        //
+    {        
         $ministries=Ministry::where('status',1)->get();
 
         return view('admin.employee.create')->with('ministries',$ministries)
@@ -41,21 +28,13 @@ class EmployeeController extends Controller
                                         ->with('karyalayas',Karyalaya::where('status',1)->get())
                                         ->with('tahas',Taha::where('status',1)->get())
                                         ->with('shrenis',Shreni::where('status',1)->get())
-                                        ->with('pads',Pad::where('status',1)->get())
-                                        
-                                        ;
-                                    
+                                        ->with('pads',Pad::where('status',1)->get());                                    
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        
         $this->validate($request,[
             'ministry_id'=>'required',
             'nirdeshanalaya'=>'required',
@@ -70,9 +49,7 @@ class EmployeeController extends Controller
             'fathername'=>'required',
             'gfname'=>'required',
             'shreni'=>'required',
-            'emp_type'=>'required',
-            
-            
+            'emp_type'=>'required',                
         ]);
 
         
@@ -95,48 +72,19 @@ class EmployeeController extends Controller
             'hire_date'=>$request['hdate'],
             'emp_type'=>$request['emp_type'],
             'emp_status'=>$request['emp_status'],
-
         ]);
 
-        Session::flash('success','Employess REcord Successfully!');
-
+        Session::flash('success','Employess Record Successfully!');
         return redirect()->route('employee.index');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
-    {
-        //
-        // dd($id);
-        $oneemployee = DB::table('employees')
-                    ->join('pads','pads.id','=','employees.pad_id')
-                    ->join('shrenis','shrenis.id','=','employees.shreni_id')
-                    ->join('tahas', 'tahas.id', '=', 'employees.taha_id')
-                    ->join('karyalayas', 'karyalayas.id', '=', 'employees.kar_id')
-                    ->join('nirdeshanalayas', 'nirdeshanalayas.id', '=', 'employees.nir_id')
-                    ->join('ministries', 'ministries.id', '=', 'employees.ministry_id')
-                    ->select('tahas.*','karyalayas.*','nirdeshanalayas.*','ministries.*', 'employees.*','pads.*','shrenis.*')
-                    ->where('employees.id','=',$id)
-                    ->get();
-
-        // dd($oneemployee);
-
+    {        
         $employee = Employee::find($id);
         $shrenis = Shreni::where('status',1)->get();
         $pads= Pad::where('status',1)->get();
@@ -145,20 +93,11 @@ class EmployeeController extends Controller
         $nirdeshanalayas =Nirdeshanalaya::where('status',1)->get();
         $ministries=Ministry::where('status',1)->get();
 
-        return view('admin.employee.edit')->with(compact('oneemployee','nirdeshanalayas','ministries','karyalayas','tahas','pads','shrenis','employee'));
+        return view('admin.employee.edit')->with(compact('nirdeshanalayas','ministries','karyalayas','tahas','pads','shrenis','employee'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
-        //
-        // dd($request->all());
         Employee::where('id', $id)
                     ->update(['first_name' =>  $request->fname,
                     'middle_name' =>  $request->mname,
@@ -184,48 +123,9 @@ class EmployeeController extends Controller
                     Session::flash('success','पद सम्पादन भयो ।');
                     return redirect()->route('employee.index');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+        
     public function destroy($id)
     {
-        //
-    }
-
-    //this method is to perform additional operation on employee
-    public function operate($id){
-
-        $oneemployee = DB::table('employees')
-        ->join('pads','pads.id','=','employees.pad_id')
-        ->join('shrenis','shrenis.id','=','employees.shreni_id')
-        ->join('tahas', 'tahas.id', '=', 'employees.taha_id')
-        ->join('karyalayas', 'karyalayas.id', '=', 'employees.kar_id')
-        ->join('nirdeshanalayas', 'nirdeshanalayas.id', '=', 'employees.nir_id')
-        ->join('ministries', 'ministries.id', '=', 'employees.ministry_id')
-        ->select('tahas.*','karyalayas.*','nirdeshanalayas.*','ministries.*', 'employees.*','pads.*','shrenis.*')
-        ->where('employees.id','=',$id)
-        ->get();
-
-        // dd($oneemployee);
-
-        $employee = Employee::find($id);
-        $shrenis = Shreni::where('status',1)->get();
-        $pads= Pad::where('status',1)->get();
-        $tahas = Taha::where('status',1)->get();
-        $karyalayas= Karyalaya::where('status',1)->get();
-        $nirdeshanalayas =Nirdeshanalaya::where('status',1)->get();
-        $ministries=Ministry::where('status',1)->get();
-
-        return view('admin.employee.operate')->with(compact('oneemployee','nirdeshanalayas','ministries','karyalayas','tahas','pads','shrenis','employee'));
-
-        // return view('admin.employee.operate')->with()
-    }
-
-    public function storeOperate(Request $request){
         
     }
 }

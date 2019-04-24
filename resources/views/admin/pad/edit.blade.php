@@ -1,8 +1,5 @@
 @extends('layouts.app')
-
-
 @section('content')
-
     @if (count($errors) > 0)
         <ul class="list-group">
             @foreach ($errors->all() as $error)
@@ -10,62 +7,65 @@
                     {{$error}}
                 </li>
             @endforeach
-        </ul>
-
-        
+        </ul>        
     @endif
-
     <div class="card card-default">
-        <div class="card-header" style="font-size:20px;font-weight: 600;">
-            
+        <div class="card-header" style="font-size:20px;font-weight: 600;">            
             पद सम्पादन गर्नुहोस् :{{$pad->pad_name}}
         </div>
-
         <div class="card-body">
-            <form action="{{route('pad.update',['pad'=>$pad->id ])}}"method="post" >
-                {{-- {{ csrf_field() }} --}}
-            @csrf
-            @method('put')
+            <form action="{{route('pad.update',['pad'=>$pad->id ])}}"method="post" >              
+                @csrf
+                @method('put')
             <div class="form-group" style="font-size:20px;">
                 <label for="name">मन्त्रालय छान्नुहोस्:</label>
                 <select name="ministry_id" id="ministry" class="form-control">
-                    <option value="{{$onepad[0]->ministry_id}}">{{$onepad[0]->ministry_name}}</option>
+            
                     @foreach ($ministries as $ministry)
-                        <option value="{{$ministry->id}}">{{$ministry->ministry_name}}</option>
-                        
+                        @if($ministry->id == $pad->ministry_id)
+                            <option selected value="{{$ministry->id}}">{{$ministry->ministry_name}}</option>                        
+                        @else
+                            <option value="{{$ministry->id}}">{{$ministry->ministry_name}}</option>                        
+                        @endif
                     @endforeach
                 </select>
                     
             </div>
             <div class="form-group" style="font-size:20px;">
                 <label for="name">निर्देशनालय  छान्नुहोस्:</label>
-                <select name="nirdeshanalaya" id="nirdeshanalaya" class="form-control">
-                        <option value="{{$onepad[0]->nir_id}}">{{$onepad[0]->nir_name}}</option>
+                <select name="nirdeshanalaya" id="nirdeshanalaya" class="form-control">                        
                     @foreach ($nirdeshanalayas as $nirdeshanalaya)
-                        <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>
-                        
+                        @if($nirdeshanalaya->id == $pad->nir_id)
+                            <option selected value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>
+                        @else
+                            <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>
+                        @endif                        
                     @endforeach
                 </select>
                     
             </div>
             <div class="form-group" style="font-size:20px;">
                 <label for="name">कर्यालय छान्नुहोस्:</label>
-                <select name="karyalaya" id="karyalaya" class="form-control">
-                        <option value="{{$onepad[0]->kar_id}}">{{$onepad[0]->kar_name}}</option>
+                <select name="karyalaya" id="karyalaya" class="form-control">                        
                     @foreach ($karyalayas as $karyalaya)
-                        <option value="{{$karyalaya->id}}">{{$karyalaya->kar_name}}</option>
-                        
+                        @if($karyalaya->id == $pad->kar_id)
+                            <option selected value="{{$karyalaya->id}}">{{$karyalaya->kar_name}}</option>                                                    
+                        @else
+                            <option value="{{$karyalaya->id}}">{{$karyalaya->kar_name}}</option>                        
+                        @endif
                     @endforeach
                 </select>
                     
             </div>
             <div class="form-group" style="font-size:20px;">
                 <label for="name">तह छान्नुहोस्:</label>
-                <select name="taha" id="taha" class="form-control">
-                        <option value="{{$onepad[0]->taha_id}}">{{$onepad[0]->taha_name}}</option>
+                <select name="taha" id="taha" class="form-control">                        
                     @foreach ($tahas as $taha)
-                        <option value="{{$taha->id}}">{{$taha->taha_name}}</option>
-                        
+                        @if($taha->id == $pad->taha_id)
+                            <option selected value="{{$taha->id}}">{{$taha->taha_name}}</option>
+                        @else
+                            <option value="{{$taha->id}}">{{$taha->taha_name}}</option>
+                        @endif
                     @endforeach
                 </select>
                     

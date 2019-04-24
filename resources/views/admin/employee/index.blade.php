@@ -25,7 +25,7 @@
                         <th>स्वीकार गरिएको</th>
                         <th>स्थिति</th>
                         <th>सम्पादन</th>
-                        <th>Operate</th>
+                        {{-- <th>Delete</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -52,8 +52,7 @@
                         @endif
                     </td>
                     <td><a href="{{route('employee.edit',['employee'=>$employee->id ]) }}" class="btn btn-sm btn-primary">Edit</a></td>
-                    <td><a href="{{route('employee.operate',['employee'=>$employee->id ]) }}" class="btn btn-sm btn-warning">Operate</a></td>
-                
+                                       
                     </form>
                     </tr>
 
@@ -61,9 +60,6 @@
                 </tbody>
 
             </table>
-
-            
-
             
         </div>
     </div>    

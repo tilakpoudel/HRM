@@ -1,51 +1,47 @@
 @extends('layouts.app')
+    @section('content')
+        @if (count($errors) > 0)
+            <ul class="list-group">
+                @foreach ($errors->all() as $error)
+                    <li class="alert alert-danger">
+                        {{$error}}
+                    </li>
+                @endforeach
+            </ul>
+        @endif
 
-
-@section('content')
-
-    @if (count($errors) > 0)
-        <ul class="list-group">
-            @foreach ($errors->all() as $error)
-                <li class="alert alert-danger">
-                    {{$error}}
-                </li>
-            @endforeach
-        </ul>
-
-        
-    @endif
-
-    <div class="card card-default">
-        <div class="card-header" style="font-size:20px;">
-            Update कार्यालय:{{$karyalaya->kar_name}}
-        </div>
-
-        <div class="card-body">
-            <form action="{{route('karyalaya.update',['karyalaya'=>$karyalaya->id ])}}"method="post" >
-                {{-- {{ csrf_field() }} --}}
-            @csrf
-            @method('put')
-            <div class="form-group" style="font-size:20px;">
-                <label for="name">Select Ministry:</label>
-                <select name="ministry_id" id="ministry" class="form-control">
-                        <option value="{{$onekaryalaya[0]->ministry_id}}">{{$onekaryalaya[0]->ministry_name}}</option>
-                    @foreach ($ministries as $ministry)
-                        <option value="{{$ministry->id}}">{{$ministry->ministry_name}}</option>
-                        
+        <div class="card card-default">
+            <div class="card-header" style="font-size:20px;">
+                Update कार्यालय:{{$karyalaya->kar_name}}
+            </div>            
+            <div class="card-body">
+                <form action="{{route('karyalaya.update',['karyalaya'=>$karyalaya->id ])}}"method="post" >                
+                    @csrf
+                    @method('put')
+                <div class="form-group" style="font-size:20px;">
+                    <label for="name">Select Ministry:</label>
+                    <select name="ministry_id" id="ministry" class="form-control">                        
+                        @foreach ($ministries as $ministry)                            
+                            @if($karyalaya->ministry_id == $ministry->id)
+                                <option selected = 'selected' value="{{$ministry->id}}">{{$ministry->ministry_name}}</option>                        
+                            @else
+                                <option value="{{$ministry->id}}">{{$ministry->ministry_name}}</option>                        
+                        @endif
                     @endforeach
-                </select>
-                    
+                </select>                    
             </div>
+            
             <div class="form-group" style="font-size:20px;">
                 <label for="name">Select Nirdeshanalaya:</label>
-                <select name="nirdeshanalaya" id="nirdeshanalaya" class="form-control">
-                        <option value="{{$onekaryalaya[0]->nirdeshanalaya_id}}">{{$onekaryalaya[0]->nir_name}}</option>
+                <select name="nirdeshanalaya" id="nirdeshanalaya" class="form-control">                        
                     @foreach ($nirdeshanalayas as $nirdeshanalaya)
-                        <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>
-                        
+                        @if($karyalaya->nirdeshanalaya_id == $nirdeshanalaya->id)
+                            <option selected='selected' value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>                        
+                        @else
+                            <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>                        
+                        @endif
                     @endforeach
-                </select>
-                    
+                </select>                    
             </div>
 
             <div class="form-group" style="font-size:20px;">
@@ -65,9 +61,7 @@
                     <button class="btn btn-md btn-success" type="submit" style="float:left">Save</button>
                 </div>
             </div>
-
             </form>
         </div>
     </div>    
-
 @endsection
