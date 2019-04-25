@@ -84,37 +84,38 @@
               <div class="col-lg-3" style="margin-top: 2%;">
                 <ul class="list-group" style="font-size:20px">
                     <li class="list-group-item">
-                        <a href="{{route('home')}}">गृह</a>
-                    </li>
-
-                    <li class="list-group-item">
-                        <a href="{{route('ministry.index')}}">मन्तरालय</a>
+                        <a href="{{route('home')}}">गृह पृष्ठ</a>
                     </li>
 
                    
-
-                    <li class="list-group-item">
-                            <a href="{{route('nirdeshanalaya.index')}}">निर्देशनालय</a>
-                    </li>
+                    <div class="dropdown" >
+                            <button class="btn btn-info dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: -webkit-fill-available;font-size:20px;text-align: left;">
+                                    सेटअप
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="font-size:20px">
+                                    <li class="list-group-item">
+                                            <a href="{{route('ministry.index')}}">मन्त्रालय</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                            <a href="{{route('nirdeshanalaya.index')}}">निर्देशनालय</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                            <a href="{{route('karyalaya.index')}}">कार्यालय</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                            <a href="{{route('taha.index')}}">तह</a>
+                                    </li>
                     
+                                    
+                                    <li class="list-group-item">
+                                            <a href="{{route('pad.index')}}">पद	</a>
+                                    </li>
                     
-                    <li class="list-group-item">
-                        <a href="{{route('karyalaya.index')}}">कार्यालय</a>
-                    </li>
-
-                    
-                     <li class="list-group-item">
-                        <a href="{{route('taha.index')}}">तह</a>
-                    </li>
-
-                
-                     <li class="list-group-item">
-                        <a href="{{route('pad.index')}}">पद	</a>
-                    </li>
-
-                    <li class="list-group-item">
-                        <a href="{{route('shreni.index')}}">श्रेणी</a>
-                    </li>
+                                    <li class="list-group-item">
+                                            <a href="{{route('shreni.index')}}">श्रेणी </a>
+                                    </li>
+                            </div>
+                          </div>
 
                     <li class="list-group-item">
                         <a href="{{route('employee.index')}}">कर्मचारि</a>
