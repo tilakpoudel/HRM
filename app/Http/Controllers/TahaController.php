@@ -39,8 +39,8 @@ class TahaController extends Controller
         
         Taha::create([
             'ministry_id'=>$request['ministry_id'],
-            'nir_id'=>$request['nirdeshanalaya'],
-            'kar_id'=>$request['karyalaya'],
+            'nirdeshanalaya_id'=>$request['nirdeshanalaya'],
+            'karyalaya_id'=>$request['karyalaya'],
             'taha_name'=>$request['taha'],
             'status'=>$request['status']
         ]);
@@ -67,8 +67,8 @@ class TahaController extends Controller
     {        
         $taha = Taha::find($id);
         $taha->ministry_id= $request->ministry_id;
-        $taha->nir_id= $request->nirdeshanalaya;
-        $taha->kar_id= $request->karyalaya;
+        $taha->nirdeshanalaya_id= $request->nirdeshanalaya;
+        $taha->karyalaya_id= $request->karyalaya;
         $taha->taha_name= $request->taha;
         $taha->status= $request->status;
 

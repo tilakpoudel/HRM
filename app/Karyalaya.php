@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Karyalaya extends Model
 {    
-    protected $fillable=['ministry_id','nirdeshanalaya_id','kar_name','status'];
+    protected $fillable=['ministry_id','nirdeshanalaya_id','karyalaya_name','status'];
 
     public function nirdeshanalaya(){
       return  $this->belongsTo('App\Nirdeshanalaya','nirdeshanalaya_id');        

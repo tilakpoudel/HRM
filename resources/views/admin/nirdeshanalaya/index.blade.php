@@ -23,7 +23,7 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$nir->ministry->ministry_name}}</td> 
-                            <td>{{$nir->nir_name}}</td> 
+                            <td>{{$nir->nirdeshanalaya_name}}</td> 
                             <td>
                                 @if ($nir->status=='1')
                                     <span class="badge badge-success">Available</span>

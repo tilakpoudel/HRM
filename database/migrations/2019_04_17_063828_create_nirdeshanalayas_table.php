@@ -16,7 +16,7 @@ class CreateNirdeshanalayasTable extends Migration
         Schema::create('nirdeshanalayas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('ministry_id');
-            $table->string('nir_name');
+            $table->string('nirdeshanalaya_name');
             $table->tinyInteger('status');
             $table->timestamps();
         });

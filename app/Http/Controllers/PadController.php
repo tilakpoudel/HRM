@@ -43,8 +43,8 @@ class PadController extends Controller
         
         Pad::create([
             'ministry_id'=>$request['ministry_id'],
-            'nir_id'=>$request['nirdeshanalaya'],
-            'kar_id'=>$request['karyalaya'],
+            'nirdeshanalaya_id'=>$request['nirdeshanalaya'],
+            'karyalaya_id'=>$request['karyalaya'],
             'taha_id'=>$request['taha'],
             'pad_name'=>$request['pad'],
 
@@ -74,8 +74,8 @@ class PadController extends Controller
 
         $pad = Pad::find($id);
         $pad->ministry_id= $request->ministry_id;
-        $pad->nir_id= $request->nirdeshanalaya;
-        $pad->kar_id= $request->karyalaya;
+        $pad->nirdeshanalaya_id= $request->nirdeshanalaya;
+        $pad->karyalaya_id= $request->karyalaya;
         $pad->taha_id= $request->taha;
         $pad->pad_name= $request->pad;
         $pad->status= $request->status;      

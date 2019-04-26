@@ -87,9 +87,9 @@
                             <select name="nirdeshanalaya" id="nirdeshanalaya" class="form-control">                                            
                                 @foreach ($nirdeshanalayas as $nirdeshanalaya)
                                     @if($employee->nir_id == $nirdeshanalaya->id)
-                                        <option selected value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>                                                
+                                        <option selected value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nirdeshanalaya_name}}</option>                                                
                                     @else
-                                        <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>                                                
+                                        <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nirdeshanalaya_name}}</option>                                                
                                     @endif
                                 @endforeach
                             </select>                                                
@@ -101,9 +101,9 @@
                             <select name="karyalaya" id="karyalaya" class="form-control">                                            
                                 @foreach ($karyalayas as $karyalaya)
                                     @if($karyalaya->id == $employee->karyalaya->kar_id)
-                                        <option selected value="{{$karyalaya->id}}">{{$karyalaya->kar_name}}</option>                                                
+                                        <option selected value="{{$karyalaya->id}}">{{$karyalaya->karyalaya_name}}</option>                                                
                                     @else
-                                        <option value="{{$karyalaya->id}}">{{$karyalaya->kar_name}}</option>                                                
+                                        <option value="{{$karyalaya->id}}">{{$karyalaya->karyalaya_name}}</option>                                                
                                     @endif
                                 @endforeach
                             </select>                                                

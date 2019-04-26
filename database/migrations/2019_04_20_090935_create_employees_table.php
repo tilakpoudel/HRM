@@ -25,8 +25,8 @@ class CreateEmployeesTable extends Migration
             $table->string('grandfather_name');
             $table->string('spouse_name');
             $table->integer('ministry_id');
-            $table->integer('nir_id');
-            $table->integer('kar_id');
+            $table->integer('nirdeshanalaya_id');
+            $table->integer('karyalaya_id');
             $table->integer('taha_id');
             $table->integer('shreni_id');
             $table->integer('pad_id');

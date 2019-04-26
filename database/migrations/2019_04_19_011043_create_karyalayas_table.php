@@ -17,7 +17,7 @@ class CreateKaryalayasTable extends Migration
             $table->bigIncrements('id');
             $table->string('ministry_id');
             $table->string('nirdeshanalaya_id');
-            $table->string('kar_name');
+            $table->string('karyalaya_name');
             $table->tinyInteger('status');
             $table->timestamps();
         });

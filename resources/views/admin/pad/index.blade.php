@@ -25,8 +25,8 @@
                     <tr>                            
                         <td>{{$loop->iteration}}</td>
                         <td>{{$pad->ministry->ministry_name}}</td> 
-                        <td>{{$pad->nirdeshanalaya->nir_name}}</td> 
-                        <td>{{$pad->karyalaya->kar_name}}</td> 
+                        <td>{{$pad->nirdeshanalaya->nirdeshanalaya_name}}</td> 
+                        <td>{{$pad->karyalaya->karyalaya_name}}</td> 
                         <td>{{$pad->taha->taha_name}}</td>
                         <td>{{$pad->pad_name}}</td>  
                         <td>

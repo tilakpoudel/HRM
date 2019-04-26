@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label for="name">Nirdeshanalaya Name:</label>
-                <input type="text" name="nirdeshanalaya_name" value="{{$nirdeshanalaya->nir_name}}" class="form-control">
+                <input type="text" name="nirdeshanalaya_name" value="{{$nirdeshanalaya->nirdeshanalaya_name}}" class="form-control">
             </div>            
             <div class="form-group" style="font-size:20px;">
                 <label for="name">Status:</label>

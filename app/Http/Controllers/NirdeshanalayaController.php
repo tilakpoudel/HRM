@@ -36,7 +36,7 @@ class NirdeshanalayaController extends Controller
 
         $nirdeshanalaya = new Nirdeshanalaya;
         $nirdeshanalaya->ministry_id = $request['ministry_id'];
-        $nirdeshanalaya->nir_name = $request['nirdeshanalaya_name'];
+        $nirdeshanalaya->nirdeshanalaya_name = $request['nirdeshanalaya_name'];
         $nirdeshanalaya->status = $request['status'];
         $nirdeshanalaya->save();
         // Nirdeshanalaya::create([
@@ -57,7 +57,7 @@ class NirdeshanalayaController extends Controller
     {        
         $nirdeshanalaya= Nirdeshanalaya::find($id);
         $ministries=Ministry::all();
-        return view('admin.nirdeshanalaya.edit')->with(compact('ministries','nirdeshanalaya','onenirdeshanalaya'));
+        return view('admin.nirdeshanalaya.edit')->with(compact('ministries','nirdeshanalaya'));
     }
 
     public function update(Request $request, $id)
@@ -65,7 +65,7 @@ class NirdeshanalayaController extends Controller
         
         $nirdeshanalaya = Nirdeshanalaya::find($id);
         $nirdeshanalaya->ministry_id= $request->ministry_id;
-        $nirdeshanalaya->nir_name= $request->nirdeshanalaya_name;
+        $nirdeshanalaya->nirdeshanalaya_name= $request->nirdeshanalaya_name;
         $nirdeshanalaya->status= $request->status;
         $nirdeshanalaya->save();
 

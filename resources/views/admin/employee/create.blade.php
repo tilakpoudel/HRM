@@ -94,7 +94,7 @@
                                                 <select name="nirdeshanalaya" id="nirdeshanalaya" class="form-control">
                                                         
                                                     @foreach ($nirdeshanalayas as $nirdeshanalaya)
-                                                        <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>
+                                                        <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nirdeshanalaya_name}}</option>
                                                         
                                                     @endforeach
                                                 </select>
@@ -107,7 +107,7 @@
                                                 <select name="karyalaya" id="karyalaya" class="form-control">
                                                         
                                                     @foreach ($karyalayas as $karyalaya)
-                                                        <option value="{{$karyalaya->id}}">{{$karyalaya->kar_name}}</option>
+                                                        <option value="{{$karyalaya->id}}">{{$karyalaya->karyalaya_name}}</option>
                                                         
                                                     @endforeach
                                                 </select>

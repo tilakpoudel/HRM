@@ -65,8 +65,8 @@ class EmployeeController extends Controller
             'grandfather_name'=>$request['gfname'],
             'spouse_name'=>$request['hwname'],
             'ministry_id'=>$request['ministry_id'],
-            'nir_id'=>$request['nirdeshanalaya'],
-            'kar_id'=>$request['karyalaya'],
+            'nirdeshanalaya_id'=>$request['nirdeshanalaya'],
+            'karyalaya_id'=>$request['karyalaya'],
             'taha_id'=>$request['taha'],
             'shreni_id'=>$request['shreni'],
             'pad_id'=>$request['pad'],
@@ -88,7 +88,7 @@ class EmployeeController extends Controller
     {        
         $employee = Employee::find($id);
         $shrenis = Shreni::where('status',1)->get();
-        $pads= Pad::where('status',0)->get();
+        $pads= Pad::where('status',1)->get();
         // dd($pads);
         $tahas = Taha::where('status',1)->get();
         $karyalayas= Karyalaya::where('status',1)->get();
@@ -111,9 +111,8 @@ class EmployeeController extends Controller
                     'grandfather_name' =>  $request->gfname,
                     'spouse_name' =>  $request->hwname,
                     'ministry_id' =>  $request->ministry_id,
-                    'nir_id' =>  $request->nirdeshanalaya,
-                    'kar_id' =>  $request->lname,
-                    'kar_id' =>  $request->karyalaya,
+                    'nirdeshanalaya_id' =>  $request->nirdeshanalaya,                    
+                    'karyalaya_id' =>  $request->karyalaya,
                     'taha_id' =>  $request->taha,
                     'shreni_id' =>  $request->shreni,
                     'pad_id' =>  $request->pad,
@@ -150,8 +149,8 @@ class EmployeeController extends Controller
         ->join('pads','pads.id','=','employees.pad_id')
         ->join('shrenis','shrenis.id','=','employees.shreni_id')
         ->join('tahas', 'tahas.id', '=', 'employees.taha_id')
-        ->join('karyalayas', 'karyalayas.id', '=', 'employees.kar_id')
-        ->join('nirdeshanalayas', 'nirdeshanalayas.id', '=', 'employees.nir_id')
+        ->join('karyalayas', 'karyalayas.id', '=', 'employees.karyalaya_id')
+        ->join('nirdeshanalayas', 'nirdeshanalayas.id', '=', 'employees.nirdeshanalaya_id')
         ->join('ministries', 'ministries.id', '=', 'employees.ministry_id')
         ->select('tahas.*','karyalayas.*','nirdeshanalayas.*','ministries.*', 'employees.*','pads.*','shrenis.*')
         ->where('employees.id','=',$id)

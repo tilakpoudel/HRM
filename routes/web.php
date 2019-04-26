@@ -49,8 +49,6 @@ Route::group(['prefix'=>'admin','middlware'=>'auth'],function(){
     //       return $ministry->lists('nir_name', 'id');
     //   })->name('dropdown');
 
-
-
 });
 
 

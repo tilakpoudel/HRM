@@ -16,8 +16,8 @@ class CreateTahasTable extends Migration
         Schema::create('tahas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('ministry_id');
-            $table->integer('nir_id');
-            $table->integer('kar_id');
+            $table->integer('nirdeshanalaya_id');
+            $table->integer('karyalaya_id');
             $table->string('taha_name');
             $table->tinyInteger('status');
             $table->timestamps();

@@ -40,7 +40,7 @@ class KaryalayaController extends Controller
         Karyalaya::create([
             'ministry_id'=>$request['ministry_id'],
             'nirdeshanalaya_id'=>$request['nirdeshanalaya'],
-            'kar_name'=>$request['karyalaya'],
+            'karyalaya_name'=>$request['karyalaya'],
             'status'=>$request['status']
         ]);
 
@@ -66,7 +66,7 @@ class KaryalayaController extends Controller
         $karyalaya = Karyalaya::find($id);
         $karyalaya->ministry_id= $request->ministry_id;
         $karyalaya->nirdeshanalaya_id= $request->nirdeshanalaya;
-        $karyalaya->kar_name= $request->karyalaya;
+        $karyalaya->karyalaya_name= $request->karyalaya;
         $karyalaya->status= $request->status;
         $karyalaya->save();
 

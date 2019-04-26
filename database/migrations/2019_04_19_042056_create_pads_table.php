@@ -16,8 +16,8 @@ class CreatePadsTable extends Migration
         Schema::create('pads', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('ministry_id');
-            $table->integer('nir_id');
-            $table->integer('kar_id');
+            $table->integer('nirdeshanalaya_id');
+            $table->integer('karyalaya_id');
             $table->integer('taha_id');
             $table->string('pad_name');
             $table->tinyInteger('status')->default('1');

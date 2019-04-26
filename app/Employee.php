@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {    
-    protected $fillable = ['first_name','middle_name','last_name','address','gender','dob','father_name','grandfather_name','spouse_name','ministry_id','nir_id','kar_id','taha_id','shreni_id','pad_id','hire_date','emp_type','emp_status'];
+    protected $fillable = ['first_name','middle_name','last_name','address','gender','dob','father_name','grandfather_name','spouse_name','ministry_id','nirdeshanalaya_id','karyalaya_id','taha_id','shreni_id','pad_id','hire_date','emp_type','emp_status'];
 
     public function pad(){
         $this->hasOne('App\Pad');
     }
 
     public function nirdeshanalaya(){
-        return  $this->belongsTo('App\Nirdeshanalaya','nir_id');        
+        return  $this->belongsTo('App\Nirdeshanalaya','nirdeshanalaya_id');        
     }  
 
     public function ministry(){
@@ -25,7 +25,7 @@ class Employee extends Model
     }
 
     public function karyalaya(){
-        return $this->belongsTo('App\Karyalaya','kar_id');        
+        return $this->belongsTo('App\Karyalaya','karyalaya_id');        
     }
 
     public function shreni(){

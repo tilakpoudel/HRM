@@ -52,10 +52,10 @@
                                         <label for="name">निर्देशनालय चयन गर्नुहोस्:</label>
                                         <select name="nirdeshanalaya" id="nirdeshanalaya" class="form-control">                                            
                                                 @foreach ($nirdeshanalayas as $nirdeshanalaya)
-                                                    @if($employee->nir_id == $nirdeshanalaya->id)
-                                                        <option selected value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>                                                
+                                                    @if($employee->nirdeshanalayas_id == $nirdeshanalaya->id)
+                                                        <option selected value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->name}}</option>                                                
                                                     @else
-                                                        <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>                                                
+                                                        <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->name}}</option>                                                
                                                     @endif
                                                 @endforeach
                                             </select> 
@@ -67,10 +67,10 @@
                                         <label for="name">कार्यालय चयन गर्नुहोस्</label>
                                         <select name="karyalaya" id="karyalaya" class="form-control">                                            
                                                 @foreach ($karyalayas as $karyalaya)
-                                                    @if($karyalaya->id == $employee->karyalaya->kar_id)
-                                                        <option selected value="{{$karyalaya->id}}">{{$karyalaya->kar_name}}</option>                                                
+                                                    @if($karyalaya->id == $employee->karyalaya_id)
+                                                        <option selected value="{{$karyalaya->id}}">{{$karyalaya->karyalaya_name}}</option>                                                
                                                     @else
-                                                        <option value="{{$karyalaya->id}}">{{$karyalaya->kar_name}}</option>                                                
+                                                        <option value="{{$karyalaya->id}}">{{$karyalaya->karyalaya_name}}</option>                                                
                                                     @endif
                                                 @endforeach
                                             </select>
@@ -258,14 +258,14 @@
                                 </div>
                                 <div class="col-md-4">
                                         <div class="form-group">
-                                                <label for="name">निर्देशनालय :</label><span style="color: firebrick;">{{$oneemployee[0]->nir_name}}</span>
+                                                <label for="name">निर्देशनालय :</label><span style="color: firebrick;">{{$oneemployee[0]->nirdeshanalaya_name}}</span>
                                                
                                                     
                                             </div>
                                 </div>
                                 <div class="col-md-4">
                                         <div class="form-group">
-                                                <label for="name">कार्यालय :</label><span style="color: firebrick;">{{$oneemployee[0]->kar_name}}</span>
+                                                <label for="name">कार्यालय :</label><span style="color: firebrick;">{{$oneemployee[0]->karyalaya_name}}</span>
                                                
                                                     
                                             </div>

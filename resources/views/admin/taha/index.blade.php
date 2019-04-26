@@ -24,8 +24,8 @@
                     <tr>
                         <td>{{$loop->iteration}}</td>
                         <td>{{$taha->ministry->ministry_name}}</td> 
-                        <td>{{$taha->nirdeshanalaya->nir_name}}</td> 
-                        <td>{{$taha->karyalaya->kar_name}}</td> 
+                        <td>{{$taha->nirdeshanalaya->nirdeshanalaya_name}}</td> 
+                        <td>{{$taha->karyalaya->karyalaya_name}}</td> 
                         <td>{{$taha->taha_name}}</td> 
                         <td>
                             @if ($taha->status=='1')

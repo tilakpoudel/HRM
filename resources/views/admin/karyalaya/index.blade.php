@@ -24,8 +24,8 @@
                     <tr>
                         <td>{{$loop->iteration}}</td>                        
                         <td>{{$kar->ministry->ministry_name}}</td> 
-                        <td>{{$kar->nirdeshanalaya->nir_name}}</td> 
-                        <td>{{$kar->kar_name}}</td> 
+                        <td>{{$kar->nirdeshanalaya->nirdeshanalaya_name}}</td> 
+                        <td>{{$kar->karyalaya_name}}</td> 
                         <td>
                                 @if ($kar->status=='1')
                                 <span class="badge badge-success">Available</span>
