@@ -35,6 +35,8 @@ Route::group(['prefix'=>'admin','middlware'=>'auth'],function(){
         'as'=>'employee.storeOperate'
     ]);
 
+    Route::post('/dynamic/fetch','DynamicController@fetch')->name('dynamic.fetch');
+
     // Route::get('employee/operate','EmployeeController@operate');
 
     // Route::post('dyamic_content/fetch','
